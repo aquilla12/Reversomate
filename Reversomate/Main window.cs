@@ -18,18 +18,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Reversomate
-{
+{   
+    
     public partial class Reversomate : Form
     {
+        Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
         public Reversomate()
         {
             InitializeComponent();
+            label4.Text ="Reversomate\r\nversion " + $"{version}"  + "\r\nCopyright 2018 Timothy Brown, Licensed under Apache License 2.0\r\nhttp://www.apache.org/licenses/LICENSE-2.0";
         }
         public void ExportAvalible()
         {
@@ -149,6 +154,7 @@ namespace Reversomate
         {
             if (Convert.ToInt32(e.KeyChar) == 13) runEngine();
         }
+
 
     }
 }
